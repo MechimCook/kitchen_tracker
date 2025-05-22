@@ -5,6 +5,6 @@ config :kitchen_tracker,
 
 config :kitchen_tracker, KitchenTracker.Repo,
   database: "kitchen_tracker_repo",
-  username: "user",
-  password: "pass",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost"
