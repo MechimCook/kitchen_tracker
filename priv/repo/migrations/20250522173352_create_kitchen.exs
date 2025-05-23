@@ -2,7 +2,7 @@ defmodule KitchenTracker.Repo.Migrations.CreateKitchen do
   use Ecto.Migration
 
   def change do
-    create table(:kitchen) do
+    create table(:food) do
       add :location, :string
       add :name, :string
       add :amount, :integer
