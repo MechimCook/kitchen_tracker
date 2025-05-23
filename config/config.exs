@@ -7,4 +7,5 @@ config :kitchen_tracker, KitchenTracker.Repo,
   database: "kitchen_tracker_repo",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
