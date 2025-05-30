@@ -8,8 +8,9 @@ defmodule KitchenTracker.Repo.Migrations.CreateKitchen do
       add :amount, :integer
       add :unit, :string
       add :expiration_date, :date
-      add :oldest_entry, :date
       add :type, :string
+
+      timestamps()
     end
   end
 end
