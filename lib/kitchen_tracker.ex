@@ -2,30 +2,24 @@ defmodule KitchenTracker do
   @moduledoc """
   Documentation for `KitchenTracker`.
   """
-   import Ecto.Query, only: [from: 2]
 
-  alias KitchenTracker.Repo
-  alias KitchenTracker.Food
+  alias KitchenTracker.Foods
 
-  @locations [:freezer, :fridge,  :pantry]
+  @locations [:freezer, :fridge, :pantry]
 
   def add(location, food_name) do
-    # Check if the location exists
     if location in @locations do
-
-      Repo.insert(%Food{location: location, name: food_name})
-
-      # Update the locations
+      Foods.create_food(%{location: location, name: food_name})
       :ok
     else
       {:error, "Location not found"}
     end
   end
-  def check(location) do
-    # Check if the location exists
-    if location in @locations do
 
-      Repo.all(from f in Food, where: f.location == ^location)
+  def check(location) do
+    if location in @locations do
+      Foods.list_food()
+      |> Enum.filter(&(&1.location == location))
       |> Enum.group_by(& &1.name, & &1.id)
       |> Enum.map(fn {name, ids} -> {name, length(ids)} end)
       |> Enum.into(%{})
