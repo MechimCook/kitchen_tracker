@@ -1,0 +1,20 @@
+<.header>
+  Food {@food.id}
+  <:subtitle>This is a food record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/foods/#{@food}/edit"}>
+      <.button>Edit food</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name">{@food.name}</:item>
+  <:item title="Location">{@food.location}</:item>
+  <:item title="Amount">{@food.amount}</:item>
+  <:item title="Unit">{@food.unit}</:item>
+  <:item title="Expiration date">{@food.expiration_date}</:item>
+  <:item title="Type">{@food.type}</:item>
+</.list>
+
+<.back navigate={~p"/foods"}>Back to foods</.back>
